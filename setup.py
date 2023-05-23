@@ -1,7 +1,6 @@
 from setuptools import find_packages, setup
 from typing import List
 
-hyphen = "-e ."
 def get_requirements(file_path:str)->List[str]:
     '''
     this function will return the requirements
@@ -11,12 +10,13 @@ def get_requirements(file_path:str)->List[str]:
         requirements= file_obj.readlines()
         requirements= [req.replace("\n", " ") for req in requirements]
 
-        if hyphen in requirements:
-            requirements.remove(hyphen)
 
     return requirements
 
-
+# def get_requirements(file_path: str) -> List[str]:
+#     with open(file_path, "r") as file:
+#         requirements = [line.strip() for line in file if line.strip() and not line.startswith("#")]
+#     return requirements
 
 setup(
     name="MLops project",
